@@ -1,0 +1,35 @@
+
+
+{# On laisse vide la vue pour l'instant, on la comblera plus tard
+   lorsqu'on saura afficher un formulaire. #}
+
+
+    <div class="well" align="left">
+        {% if advert is defined %}
+            <form action="{{ path('ex_platform_edit', {'id':advert.id})}}" method="post" {{form_enctype(form)}}>
+                {% else %}
+                 <form action="{{ path('ex_platform_add')}}" method="post" {{form_enctype(form)}}>
+        {% endif %}
+            {{form_errors(form)}}
+            <div>
+                {{ form_label(form.title,"Titre de l'annonce")}}
+                {{ form_errors(form.title)}}
+                {{ form_widget(form.title)}}
+            </div>
+
+            <div>
+                {{ form_label(form.content,"Contenu de l'annonce")}}
+                {{ form_errors(form.content)}}
+                {{ form_widget(form.content)}}
+            </div>
+            <div>
+                {{ form_label(form.image,"Avatar")}}
+                {{ form_errors(form.image)}}
+                {{ form_widget(form.image)}}
+            </div>
+            
+            
+            {{form_rest(form)}}
+           
+        </form>
+    </div>

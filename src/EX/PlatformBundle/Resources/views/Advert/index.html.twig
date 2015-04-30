@@ -1,0 +1,32 @@
+{% extends "EXPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Toutes les annonces - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    
+  
+    {% for advert in adverts %}
+        <div class="col-sm-12 col-md-4">
+           
+                {% include "EXPlatformBundle:Advert:Advert.html.twig" with {'accueil':  true } %}
+           
+        </div>
+    {% else %}
+      
+            Pas (encore !) d'annonces
+            
+    {% endfor %}
+  </div>
+  <div style="text-align: right">
+   <ul class="pagination pagination-sm">
+       
+          {% for p in range(1, nombrePage) %}
+              <li{% if p == page %} class="active" {% endif %}>
+                  <a href="{{path('ex_platform_home', {'page': p}) }}"> {{p}}</a>
+              </li>                 
+          {% endfor %}
+      </ul>
+  </div>   
+{% endblock %}

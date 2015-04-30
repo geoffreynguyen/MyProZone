@@ -1,0 +1,49 @@
+# src/EX/PlatformBundle/Resources/config/routing.yml
+
+ex_platform_home:
+    path:      /{page}
+    defaults:  { _controller: EXPlatformBundle:Advert:index, page: 1 }
+    requirements:
+        page: \d*
+    
+ex_platform_view:
+    path:      /advert/{id}
+    defaults:  { _controller: EXPlatformBundle:Advert:view }
+    requirements:
+        id: \d*
+    
+ex_platform_add:
+    path:      admin/add
+    defaults:  { _controller: EXPlatformBundle:Advert:add }
+    
+ex_platform_edit:
+    path:      admin/edit/{id}
+    defaults:  { _controller: EXPlatformBundle:Advert:edit }
+    requirements:
+        id: \d+
+
+ex_platform_delete:
+    path:      admin/delete/{id}
+    defaults:  { _controller: EXPlatformBundle:Advert:delete }
+    requirements:
+        id: \d+
+  
+ex_platform_edit_image:
+    path:       admin/editImage/{advertId}
+    defaults:   { _controller: EXPlatformBundle:Advert:editImage }
+    requirements:
+        advertId: \d+
+ 
+ex_platform_advert_by_category:
+    path:      /category/{id}/{page}
+    defaults:  { _controller: EXPlatformBundle:Advert:advertByCategory, page: 1 }
+    requirements:
+        id: \d*
+        page: \d*
+        
+
+        
+ex_platform_paramconverter:
+    path: /test/{json}
+    defaults: { _controller: "EXPlatformBundle:Advert:ParamConverter" }
+ 

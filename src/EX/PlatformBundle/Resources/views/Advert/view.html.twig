@@ -1,0 +1,51 @@
+{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "EXPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+     
+    {% include "EXPlatformBundle:Advert:Advert.html.twig" %}
+    
+    {% if advert.advertSkills.count > 0 %}
+    <div class="well well-small">
+        <p><i>
+                Skills:
+                {% for advertSkill in advert.advertSkills %}
+                   {{ advertSkill.skill.name }}  niveau : {{ advertSkill.level }}{% if not loop.last %},{% endif %}
+                {% endfor %}
+            </i>
+        </p>
+    </div>
+            {% endif %}
+            
+{% if app.session.get('idCategorie') > 0 %}
+    <a href="{{ path('ex_platform_advert_by_category', {'id': app.session.get('idCategorie')}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la catégorie
+    </a>
+{% else %}
+    <a href="{{ path('ex_platform_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+{% endif %}
+ 
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('ex_platform_edit', {'id': advert.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Modifier l'annonce
+    </a>
+    <a href="{{ path('ex_platform_delete', {'id': advert.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'annonce
+    </a>
+     {% endif %}
+  </p>
+
+
+
+{% endblock %}

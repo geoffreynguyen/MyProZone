@@ -1,0 +1,37 @@
+    {% set accueil = accueil|default(false) %}
+    
+<h2>
+
+    {% if accueil %}
+        <a href="{{path('ex_platform_view', {'id' : advert.id}) }}">
+        <div class="well" style="height:150px; text-align:center;">
+            
+             {% if advert.image is not null %}
+            <img src="{{asset(advert.image.webPath)}}" alt="{{advert.image.alt}}"  class="img-rounded" height="70px" widht="70px" />
+             {% else %}
+                 <img src="{{asset('bundles/explatform/images/avatar_vide.png')}}" alt="avatar_vide.png"  class="img-rounded" height="70px" widht="70px" />
+             {% endif %}   
+             <h3>{{ advert.title }}</h3>
+         
+        </div>
+        </a>
+ 
+    {% else %}
+        {% if advert.image is not null %}
+            <img src="{{asset(advert.image.webPath)}}" alt="{{advert.image.alt}}"  height="100px" widht="100px" />
+        {% endif %}
+            {{ advert.title }}
+    
+</h2>
+
+    <i> Le {{ advert.date|date('d/m/Y')}}, par {{advert.author}}. </i>
+
+    <div class="well">
+        {{ advert.content }}
+    </div>
+    
+
+{% endif %}
+
+
+            

@@ -1,0 +1,9 @@
+
+  {% for category in listCategory %}
+    <li>
+      <a href="{{ path('ex_platform_advert_by_category', {'id': category.id }) }}">
+        {{ category.name }}
+      </a>
+    </li>
+
+  {% endfor %}

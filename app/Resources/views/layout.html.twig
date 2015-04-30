@@ -1,0 +1,104 @@
+{# app/Resources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}EX Plateforme{% endblock %}</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement #}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   {% stylesheets filter="cssrewrite" '@EXPlatformBundle/Resources/public/css/mainStyle.css' %}
+    <link rel="stylesheet" href="{{asset_url}}" type="text/css"/>
+    {% endstylesheets %}
+  {% endblock %}
+</head>
+
+<body>
+    
+{% block header %}
+    <div id="header">
+       
+    <img src="{{ asset('images/btp.jpg') }}" alt="{{ asset('images/btp.jpg') }}" class="img-responsive">
+  
+    </div>  
+{% endblock  %}
+
+{% block nav %}     
+         <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-top: -40px;">
+             <div class="container-fluid">
+            <div class="navbar-header">
+                  <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                     <a class="navbar-brand" href="#">MyProZone</a>
+              </div>
+              <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="{{ path('ex_platform_home') }}">Accueil</a></li>
+                    {% if is_granted('ROLE_AUTEUR') %} 
+                  <li><a href="{{ path('ex_platform_add') }}">Ajouter une annonce</a></li>
+                    {% endif %}
+                {{ render(controller("EXPlatformBundle:Advert:menu")) }}
+                </ul>
+                <ul class="nav navbar-nav navbar-right" >
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li>
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <span class="glyphicon glyphicon-log-out"></span> Déconnexion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_profile_show') }}">
+                            <span class="glyphicon glyphicon-cog"></span> Mon compte
+                        </a>
+                    </li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">
+                            <span class="glyphicon glyphicon-log-in"></span> Connexion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_registration_register') }}">
+                            <span class="glyphicon glyphicon-user"></span> Inscription</a>
+                    </li>
+                {% endif %}
+                </ul>
+              </div>
+   </div> 
+        </nav>
+    {% endblock %}
+   
+                
+
+        
+  <div class="container">
+      
+       
+            {% block body %}
+            {% endblock %}
+
+  
+  </div>
+
+    <div id="footer">
+        <hr>
+      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+    </div>
+  
+
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "EXPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Advert par catégorie - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+    
+    <p>  <h3> {{ categorie.name }}  </h3> il y a {{nbAdvert}} annonce(s)<p>
+    
+  {% for advert in adverts %}
+      
+  <li>
+     <a href="{{ path('ex_platform_view_by_category', {'idAdvert': advert.id, 'idCategory': categorie.id}) }}">
+        {{ advert.title }}
+     </a>
+      par {{ advert.author }},
+      le {{ advert.date|date('d/m/Y') }}
+      </li>
+  {% else %}
+     Pas d'annonces dans cette catégorie
+  {% endfor %}
+
+{% endblock %}
