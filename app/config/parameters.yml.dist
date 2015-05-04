@@ -17,4 +17,4 @@ parameters:
     locale:            fr
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretButIsSpecialToComposerAsAService
+   secret: 72d70f1ab80b6e75f7b59733c18705b9ad918376
