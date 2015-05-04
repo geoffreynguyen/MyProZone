@@ -1,5 +1,3 @@
-{# Widgets #}
-
 {% block form_widget %}
 {% spaceless %}
     {% if compound %}
@@ -132,11 +130,11 @@
         {{ block('form_widget_simple') }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
-            {{ date_pattern|replace({
+            {% autoescape 'html' %}{{ date_pattern|replace({
                 '{{ year }}':  form_widget(form.year),
                 '{{ month }}': form_widget(form.month),
                 '{{ day }}':   form_widget(form.day),
-            })|raw }}
+            })|raw  }}{% endautoescape %}
         </div>
     {% endif %}
 {% endspaceless %}
@@ -172,7 +170,7 @@
 
 {% block money_widget %}
 {% spaceless %}
-    {{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') })|raw }}
+    {% autoescape 'html' %}{{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') })|raw }}{% endautoescape %}
 {% endspaceless %}
 {% endblock money_widget %}
 
