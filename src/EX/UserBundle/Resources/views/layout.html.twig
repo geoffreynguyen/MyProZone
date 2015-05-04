@@ -1,9 +1,9 @@
 {# On étend notre layout #}
 
 {% extends "::layout.html.twig" %}
-
-
-    
+    {% if form is defined %}
+        {% form_theme form 'EXUserbundle:Form:form_div_layout.html.twig' %}
+   {% endif %} 
 {% block body %}
  
   <div class="row" >

@@ -4,7 +4,7 @@ namespace EX\PlatformBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use InvalidArgumentException;
+
 
 /**
  * AdvertRepository

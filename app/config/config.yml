@@ -28,9 +28,7 @@ twig:
 
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources:
-            - ':Form:form_div_layout.html.twig'
+    
 
 
 # Assetic Configuration
@@ -85,3 +83,4 @@ fos_user:
     registration:
         form:
             type: ex_user_registration
+            

@@ -1,12 +1,12 @@
 <?php
 
-namespace EX\PlatformBundle\Form;
+namespace EX\PlatformBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ImageType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,7 @@ class ImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file','file')
-            
+            ->add('name', 'text')
         ;
     }
     
@@ -26,7 +25,7 @@ class ImageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EX\PlatformBundle\Entity\Image'
+            'data_class' => 'EX\PlatformBundle\Entity\Category'
         ));
     }
 
@@ -35,6 +34,6 @@ class ImageType extends AbstractType
      */
     public function getName()
     {
-        return 'ex_platformbundle_image';
+        return 'ex_platformbundle_category';
     }
 }

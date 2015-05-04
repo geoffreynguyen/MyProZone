@@ -4,10 +4,9 @@ namespace EX\PlatformBundle\Controller;
 
 use EX\PlatformBundle\Entity\Advert;
 use EX\PlatformBundle\Entity\Category;
-use EX\PlatformBundle\Form\AdvertEditType;
-use EX\PlatformBundle\Form\AdvertType;
+use EX\PlatformBundle\Form\Type\AdvertEditType;
+use EX\PlatformBundle\Form\Type\AdvertType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

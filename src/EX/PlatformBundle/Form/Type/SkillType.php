@@ -1,12 +1,12 @@
 <?php
 
-namespace EX\PlatformBundle\Form;
+namespace EX\PlatformBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AdvertSkillType extends AbstractType
+class SkillType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,7 @@ class AdvertSkillType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('level')
-            ->add('advert')
-            ->add('skill')
+            ->add('name')
         ;
     }
     
@@ -27,7 +25,7 @@ class AdvertSkillType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EX\PlatformBundle\Entity\AdvertSkill'
+            'data_class' => 'EX\PlatformBundle\Entity\Skill'
         ));
     }
 
@@ -36,6 +34,6 @@ class AdvertSkillType extends AbstractType
      */
     public function getName()
     {
-        return 'ex_platformbundle_advertskill';
+        return 'ex_platformbundle_skill';
     }
 }
