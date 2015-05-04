@@ -1,7 +1,8 @@
 {
     "name": "geoffrey/exercice-sf",
-    "license": "GPL-3.0+",
+    "license": "proprietary",
     "type": "project",
+    "description": "test",
     "autoload": {
         "psr-0": {
             "": "src/"
