@@ -134,7 +134,7 @@
                 '{{ year }}':  form_widget(form.year),
                 '{{ month }}': form_widget(form.month),
                 '{{ day }}':   form_widget(form.day),
-            }) | raw }}{% endautoescape %}
+            })}}{% endautoescape %}
         </div>
     {% endif %}
 {% endspaceless %}
@@ -170,7 +170,7 @@
 
 {% block money_widget %}
 {% spaceless %}
-    {% autoescape %}{{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') }) |raw }}{% endautoescape %}
+    {% autoescape %}{{ money_pattern|replace({ '{{ widget }}': block('form_widget_simple') }) }}{% endautoescape %}
 {% endspaceless %}
 {% endblock money_widget %}
 
