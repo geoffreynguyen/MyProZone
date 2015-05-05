@@ -3,40 +3,47 @@
 ex_platform_home:
     path:      /{page}
     defaults:  { _controller: EXPlatformBundle:Advert:index, page: 1 }
+    methods: [GET]
     requirements:
         page: \d*
     
 ex_platform_view:
     path:      /advert/{id}
     defaults:  { _controller: EXPlatformBundle:Advert:view }
+    methods: [GET]
     requirements:
         id: \d*
     
 ex_platform_add:
     path:      admin/add
     defaults:  { _controller: EXPlatformBundle:Advert:add }
+    methods: [GET, POST]
     
 ex_platform_edit:
     path:      admin/edit/{id}
     defaults:  { _controller: EXPlatformBundle:Advert:edit }
+    methods: [GET, POST]
     requirements:
         id: \d+
 
 ex_platform_delete:
     path:      admin/delete/{id}
     defaults:  { _controller: EXPlatformBundle:Advert:delete }
+    methods: [GET, POST]
     requirements:
         id: \d+
   
 ex_platform_edit_image:
     path:       admin/editImage/{advertId}
     defaults:   { _controller: EXPlatformBundle:Advert:editImage }
+    methods: [GET, POST]
     requirements:
         advertId: \d+
  
 ex_platform_advert_by_category:
     path:      /category/{id}/{page}
     defaults:  { _controller: EXPlatformBundle:Advert:advertByCategory, page: 1 }
+    methods: [GET]
     requirements:
         id: \d*
         page: \d*
@@ -46,5 +53,6 @@ ex_platform_advert_by_category:
 ex_platform_paramconverter:
     path: /test/{json}
     defaults: { _controller: "EXPlatformBundle:Advert:ParamConverter" }
+    methods: [GET]
     
  
