@@ -10,6 +10,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * 
  * @ORM\Entity(repositoryClass="UserRepository")
  */
+
 class User extends BaseUser
 {
     /**
@@ -30,7 +31,7 @@ class User extends BaseUser
      */
     protected $address;
     
-      /**
+    /**
      * Set address
      *
      * @param string $address
