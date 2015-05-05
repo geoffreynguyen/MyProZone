@@ -39,11 +39,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "coresphere/console-bundle": "0.1.0",
-        "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "braincrafted/bootstrap-bundle": "dev-master",
-        "twitter/bootstrap": "2.3.*",
-        "leafo/lessphp": "dev-master",
-        "jquery/jquery": "1.9.*"
+        "doctrine/doctrine-fixtures-bundle": "~2.2"
+
     },
     "scripts": {
         "post-install-cmd": [

@@ -47,9 +47,9 @@ ex_platform_advert_by_category:
     requirements:
         id: \d*
         page: \d*
-        
+      
 ex_platform_paramconverter:
     path: /test/{json}
     defaults: { _controller: "EXPlatformBundle:Advert:ParamConverter" }
     methods: [GET]
-    
+

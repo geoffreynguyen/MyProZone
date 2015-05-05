@@ -29,8 +29,8 @@ class User extends BaseUser
      *
      */
     protected $address;
-
-    /**
+    
+      /**
      * Set address
      *
      * @param string $address
