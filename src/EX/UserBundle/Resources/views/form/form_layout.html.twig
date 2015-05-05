@@ -1,0 +1,11 @@
+{%- block form_widget_simple -%}
+{% spaceless %}
+    {%- set type = type|default('text') -%}
+    {% if type == 'file' %}
+    <input  type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% else %}
+        <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+
+{% endif %}
+{% endspaceless %}
+{%- endblock form_widget_simple -%}

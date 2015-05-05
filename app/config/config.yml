@@ -25,7 +25,10 @@ framework:
 
 # Twig Configuration
 twig:
-
+    form:
+        resources:
+            - 'EXUserBundle:form:form_layout.html.twig'
+            
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     
