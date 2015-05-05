@@ -9,7 +9,6 @@ use EX\PlatformBundle\Form\Type\AdvertType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Exception\InvalidArgumentException;
 
@@ -234,12 +233,5 @@ class AdvertController extends Controller{
       
       'idCategorie' => $idCategory
     ));  
-    }
-   
-    /**
-     * @ParamConverter("json")
-     */
-    public function ParamConverterAction($json){
-        return new Response(print_r($json,true));
     }
 }
