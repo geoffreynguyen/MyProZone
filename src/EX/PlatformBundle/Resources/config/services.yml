@@ -3,8 +3,3 @@ services:
         class: EX\PlatformBundle\Antispam\EXAntispam
         arguments: [@mailer, %locale%, 50]
 
-    ex_platform.json_paramconverter:
-        class: EX\PlatformBundle\ParamConverter\JsonParamConverter
-        tags:
-            - { name: request.param_converter }
-

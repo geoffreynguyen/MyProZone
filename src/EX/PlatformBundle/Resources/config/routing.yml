@@ -24,21 +24,21 @@ ex_platform_edit:
     defaults:  { _controller: EXPlatformBundle:Advert:edit }
     methods: [GET, POST]
     requirements:
-        id: \d+
+        id: \d*
 
 ex_platform_delete:
     path:      admin/delete/{id}
     defaults:  { _controller: EXPlatformBundle:Advert:delete }
     methods: [GET, POST]
     requirements:
-        id: \d+
+        id: \d*
   
 ex_platform_edit_image:
     path:       admin/editImage/{advertId}
     defaults:   { _controller: EXPlatformBundle:Advert:editImage }
     methods: [GET, POST]
     requirements:
-        advertId: \d+
+        advertId: \d*
  
 ex_platform_advert_by_category:
     path:      /category/{id}/{page}
